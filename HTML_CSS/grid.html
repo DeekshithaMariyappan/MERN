@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    padding:20px;
+    border:3px black solid;
+    background-color: aqua;
+}
+#grid-item{
+    margin:10px;
+    padding:30px;
+    width:20px;
+    height:20px;
+    background-color: black;
+    color:aqua;
+    border:3px brown dotted;
+}
+
+@media screen and (max-width : 600px) {
+    .grid-container{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        padding:10px;
+        border:3px black solid;
+        background-color: aqua;
+    }
+}
+
+@media screen and (min-width : 1600px) or (max-width : 2000px){
+    .grid-container{
+        display:grid;
+        grid-template-columns: repeat(5,1fr);
+        padding:20px;
+        border:3px brown dotted solid;
+        background-color: aqua;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div id="grid-item">1</div>
+        <div id="grid-item">2</div>
+        <div id="grid-item">3</div>
+        <div id="grid-item">4</div>
+        <div id="grid-item">5</div>
+        <div id="grid-item">6</div>
+        <div id="grid-item">7</div>
+        <div id="grid-item">8</div>
+        <div id="grid-item">9</div>
+
+    </div>
+</body>
+</html>
