@@ -9,6 +9,7 @@ import Signup from './components/FunctionalComponents/Signup';
 import Login from './components/FunctionalComponents/Login';
 import UseState from './components/FunctionalComponents/Hooks/UseState';
 import UseEffect from './components/FunctionalComponents/Hooks/UseEffect';
+import UseEffectAPI from './components/FunctionalComponents/Hooks/UseEffectAPI';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/about"element={<About />}></Route>
       <Route path="/gallery"element={<Gallery page="Gallery" image="SECE Logo" />}></Route>
       <Route path="/contact"element={<Contact />}></Route>
+      <Route path="/useApi"element={<UseEffectAPI />}></Route>
       <Route path="/signup"element={<Signup />}></Route>
       <Route path="/login"element={<Login />}></Route>
       <Route path="/useState"element={<UseState />}></Route>

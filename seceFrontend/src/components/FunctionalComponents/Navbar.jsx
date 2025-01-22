@@ -23,6 +23,7 @@ const Navbar=()=>{
                         <li><Link to='/useEffect' className='link'>useEffect</Link></li>
                     </ul>)}
                 </div>
+                <li><Link to='/useapi 'className="link">UseEffect API</Link></li>
                 <li><Link to='/signup 'className="link">SignUp</Link></li>
                 <li><Link to='/login 'className="link">Login</Link></li>
 
