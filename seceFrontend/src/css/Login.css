@@ -28,8 +28,8 @@ input {
     border-radius: 5px;
     font-size: 16px;
 }
-.signup-button {
-    background-color: #28a745;
+.login-button {
+    background-color: #007bff;
     color: #ffffff;
     padding: 10px;
     border: none;
@@ -38,8 +38,8 @@ input {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.signup-button:hover {
-    background-color: #218838;
+.login-button:hover {
+    background-color: #0056b3;
 }
 .switch-link {
     margin-top: 15px;

@@ -11,6 +11,8 @@ const Navbar=()=>{
                 <li><Link to='/gallery' className="link">Gallery</Link></li>
                 <li><Link to='/contact' className="link">Contact</Link></li>
                 <li><Link to='/signup 'className="link">SignUp</Link></li>
+                <li><Link to='/login 'className="link">Login</Link></li>
+
             </ol>
         </nav>
         </header>
