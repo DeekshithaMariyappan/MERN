@@ -4,8 +4,11 @@ const About=()=>{
     function handleText(event){
         setText(event.target.value)
     }
+    var styling={
+        textAlign:'center'
+    }
     return(
-        <div>
+        <div style={styling}>
             <h1>Hello,Deekshitha!</h1>
             <h2>TextArea:</h2>
            {/*<textarea value={text} onChange={(event)=>setText(event.target.value)}/>*/}

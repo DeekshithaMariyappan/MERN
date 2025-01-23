@@ -14,11 +14,13 @@ const UseMemo=()=>
     var [dark,setDark]=useState(false);
     var styling={
         backgroundColor: dark ? "black" : "white",
-        color: dark ? "white" : "black"
+        color: dark ? "white" : "black",
+        textAlign: "center"
     }
     var doublingUpANumber=useMemo(()=>{
         return slowFunction(num)
     },[num])
+    
     return(
         <div style={styling}>
         

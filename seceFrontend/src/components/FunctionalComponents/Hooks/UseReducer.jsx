@@ -14,8 +14,11 @@ const reducer = (state, action) => {
 };
 const UseReducer = () => {
   const [num, setNum] = useReducer(reducer, initialState);
+  var styling={
+    textAlign: "center"
+}
   return (
-    <div>
+    <div style={styling}>
       <h1>UseReducer Example</h1>
       <h4>The number is {num}</h4>
       <button onMouseEnter={() => setNum({ type: "increment" })}>+</button>

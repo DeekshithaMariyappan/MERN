@@ -5,8 +5,11 @@ const contact=()=>{
     function handleAdd(){
         return setNum(num+1)
     }
+    var styling={
+        textAlign: "center"
+    }
     return(
-        <div>
+        <div style={styling}>
             <h2>Contact Me</h2>
             <h3>This is a state example</h3>
             <h4>Number is {num}</h4>

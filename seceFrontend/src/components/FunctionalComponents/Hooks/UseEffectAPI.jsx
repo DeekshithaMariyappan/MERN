@@ -11,6 +11,7 @@ const UseEffectAPI=()=>{
         })
         .catch((err)=>console.log(err))
     },[])
+    
     return(
         <div>
             <h1>This page is meant for useEffect API.</h1>

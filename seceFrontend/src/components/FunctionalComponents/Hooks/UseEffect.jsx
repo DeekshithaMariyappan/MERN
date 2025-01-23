@@ -6,8 +6,11 @@ var UseEffect=()=>{
         console.log(text)
         console.log(text1)
     },[text])
+    var styling={
+        textAlign: "center"
+    }
     return(
-        <div>
+        <div style={styling}>
             <h1>This is UseEffect Example</h1>
             <input type="text" value={text} onChange={(event)=>setText(event.target.value)}/>            
             <h4>The text is {text}</h4>
