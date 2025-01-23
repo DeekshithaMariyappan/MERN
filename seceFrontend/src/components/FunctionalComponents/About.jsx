@@ -1,6 +1,6 @@
 import {useState} from 'react';
 const About=()=>{
-    var[text,setText]=useState("Kalyan")
+    var[text,setText]=useState("Deekshitha")
     function handleText(event){
         setText(event.target.value)
     }
