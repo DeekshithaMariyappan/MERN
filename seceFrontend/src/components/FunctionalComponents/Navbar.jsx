@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import'../../css/Navbar.css';
+import'./css/Navbar.css';
 const Navbar=()=>{
     var [dropdown,showDropdown]=useState(false)
     const toggleDropdown=()=>{
