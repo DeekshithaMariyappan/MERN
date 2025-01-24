@@ -32,6 +32,7 @@ const Navbar=()=>{
                                 borderRadius: '10px',
                                 zIndex: 1,
                             }}>
+                        <li><Link to='/reactlm' className="link">Lifecycle</Link></li>
                         <li><Link to='/useState' className='link'>useState</Link></li>
                         <li><Link to='/useEffect' className='link'>useEffect</Link></li>
                         <li><Link to='/useapi 'className="link">UseEffectAPI</Link></li>
