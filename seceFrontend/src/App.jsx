@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from './components/FunctionalComponents/About';
 import Gallery from './components/FunctionalComponents/Gallery';
@@ -18,33 +18,43 @@ import UseCallback from './components/FunctionalComponents/Hooks/UseCallback';
 import ReactLifecycleMethods from './components/classComponents/ReactLifecycleMethods';
 import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo';
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login
+
+  // Simulate login function
+  const handleLogin = (email, password) => {
+    // In a real-world scenario, you would validate the credentials here
+    if (email && password) {
+      setIsLoggedIn(true);  // Set login status to true
+    }
+  };
 
   return (
     <BrowserRouter>
-    <Navbar/>
+      {isLoggedIn && <Navbar />} {/* Render Navbar only if logged in */}
       <Routes>
-      <Route path="/"element={<Home />}></Route>
-      <Route path="/about"element={<About />}></Route>
-      <Route path="/gallery"element={<Gallery page="Gallery" image="SECE Logo" />}></Route>
-      <Route path="/contact"element={<Contact />}></Route>
-      <Route path="/reactlm"element={<ReactLifecycleMethods />}></Route>
-      <Route path="/useApi"element={<UseEffectAPI />}></Route>
-      <Route path="/signup"element={<Signup />}></Route>
-      <Route path="/login"element={<Login />}></Route>
-      <Route path="/useState"element={<UseState />}></Route>
-      <Route path="/useEffect"element={<UseEffect />}></Route>
-      <Route path="/useimage"element={<UseEffectAPIimage />}></Route>
-      <Route path="/usereducer"element={<UseReducer />}></Route>
-      <Route path="/useref"element={<UseRef />}></Route>
-      <Route path="/usememo"element={<UseMemo />}></Route>
-      <Route path="/usecallback"element={<UseCallback />}></Route>
-      <Route path="/usecontext"element={<UseContext />}></Route>
-      <Route path="/memo"element={<Memo />}></Route>
+        <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
+        <Route path="/about" element={isLoggedIn ? <About /> : <Login onLogin={handleLogin} />} />
+        <Route path="/gallery" element={isLoggedIn ? <Gallery page="Gallery" image="SECE Logo" /> : <Login onLogin={handleLogin} />} />
+        <Route path="/contact" element={isLoggedIn ? <Contact /> : <Login onLogin={handleLogin} />} />
+        <Route path="/reactlm" element={isLoggedIn ? <ReactLifecycleMethods /> : <Login onLogin={handleLogin} />} />
+        <Route path="/useApi" element={isLoggedIn ? <UseEffectAPI /> : <Login onLogin={handleLogin} />} />
+        <Route path="/signup" element={isLoggedIn ? <Home /> : <Signup />} />
+        <Route path="/login" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
+        <Route path="/useState" element={isLoggedIn ? <UseState /> : <Login onLogin={handleLogin} />} />
+        <Route path="/useEffect" element={isLoggedIn ? <UseEffect /> : <Login onLogin={handleLogin} />} />
+        <Route path="/useimage" element={isLoggedIn ? <UseEffectAPIimage /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usereducer" element={isLoggedIn ? <UseReducer /> : <Login onLogin={handleLogin} />} />
+        <Route path="/useref" element={isLoggedIn ? <UseRef /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usememo" element={isLoggedIn ? <UseMemo /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usecallback" element={isLoggedIn ? <UseCallback /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usecontext" element={isLoggedIn ? <UseContext /> : <Login onLogin={handleLogin} />} />
+        <Route path="/memo" element={isLoggedIn ? <Memo /> : <Login onLogin={handleLogin} />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;

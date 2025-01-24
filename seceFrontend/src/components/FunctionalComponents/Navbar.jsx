@@ -45,8 +45,6 @@ const Navbar=()=>{
                     </ul>)}
                 </div>
                 <li><Link to='/memo 'className="link">React.memo</Link></li>
-                <li><Link to='/signup 'className="link">SignUp</Link></li>
-                <li><Link to='/login 'className="link">Login</Link></li>
 
             </ol>
         </nav>
