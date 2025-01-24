@@ -41,8 +41,10 @@ const Navbar=()=>{
                         <li><Link to='/useref 'className="link">UseRef</Link></li>
                         <li><Link to='/usememo 'className="link">UseMemo</Link></li>
                         <li><Link to='/usecallback 'className="link">UseCallBack</Link></li>
+                        <li><Link to='/usecontext 'className="link">UseContext</Link></li>
                     </ul>)}
                 </div>
+                <li><Link to='/memo 'className="link">React.memo</Link></li>
                 <li><Link to='/signup 'className="link">SignUp</Link></li>
                 <li><Link to='/login 'className="link">Login</Link></li>
 
