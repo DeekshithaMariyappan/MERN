@@ -18,16 +18,16 @@ import UseCallback from './components/FunctionalComponents/Hooks/UseCallback';
 import ReactLifecycleMethods from './components/classComponents/ReactLifecycleMethods';
 import UseContext from './components/FunctionalComponents/Hooks/UseContext';
 import Memo from './components/FunctionalComponents/Memoization/Memo';
+import LazyLoadingWithSuspense from './components/FunctionalComponents/Memoization/LazyLoadingWithSuspense';
+import UseLocalStorage from './components/FunctionalComponents/Hooks/CustomHooks/UseLocalStorage';
+import HoC from './components/FunctionalComponents/HOC/HoC';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage login
-
-  // Simulate login function
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = (email, password) => {
-    // In a real-world scenario, you would validate the credentials here
     if (email && password) {
-      setIsLoggedIn(true);  // Set login status to true
+      setIsLoggedIn(true);
     }
   };
 
@@ -52,6 +52,10 @@ function App() {
         <Route path="/usecallback" element={isLoggedIn ? <UseCallback /> : <Login onLogin={handleLogin} />} />
         <Route path="/usecontext" element={isLoggedIn ? <UseContext /> : <Login onLogin={handleLogin} />} />
         <Route path="/memo" element={isLoggedIn ? <Memo /> : <Login onLogin={handleLogin} />} />
+        <Route path="/lazy" element={isLoggedIn ? <LazyLoadingWithSuspense /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usecustom" element={isLoggedIn ? <UseLocalStorage /> : <Login onLogin={handleLogin} />} />
+        <Route path="/hoc" element={isLoggedIn ? <HoC /> : <Login onLogin={handleLogin} />} />
+        
       </Routes>
     </BrowserRouter>
   );

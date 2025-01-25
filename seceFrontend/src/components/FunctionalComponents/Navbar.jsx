@@ -20,8 +20,9 @@ const Navbar=()=>{
                 <li><Link to='/about' className="link">About</Link></li>
                 <li><Link to='/gallery' className="link">Gallery</Link></li>
                 <li><Link to='/contact' className="link">Contact</Link></li>
+                <li><Link to='/hoc' className="link">Higher Order Components</Link></li>
                 <div onMouseEnter={togglehDropdown} onMouseLeave={togglehDropdown} style={{ position: 'relative', display: 'inline-block' }}>
-                        <span styling={{color:'black'}}>Hooks</span>
+                        <span style={{color:'black'}}>Hooks</span>
                         {hookdropdown && (
                             <ul style={{
                                 position: 'absolute',
@@ -46,11 +47,12 @@ const Navbar=()=>{
                         <li><Link to='/useref' className='link'>Useref</Link></li>
                         <li><Link to='/usememo' className='link'>UseMemo</Link></li>
                         <li><Link to='/usecallback' className='link'>UseCallback</Link></li>
-                        <li><Link to='/Usecontext' className='link'>UseContext</Link></li>
+                        <li><Link to='/usecontext' className='link'>UseContext</Link></li>
+                        <li><Link to='/usecustom' className='link'>CustomHooks</Link></li>
                     </ul>)}
                 </div>
                 <div  onMouseEnter={togglemDropdown} style={{ position: 'relative', display: 'inline-block' }}>
-                        <span>Memoization</span>
+                        <span style={{color:'black'}}>Memoization</span>
                         {memodropdown && (
                             <ul style={{
                                 position: 'absolute',
@@ -66,7 +68,8 @@ const Navbar=()=>{
                                 borderRadius: '5px',
                                 zIndex: 1,
                             }}>
-                         <li><Link to='/Memo' className='link'>Memo</Link></li>       
+                         <li><Link to='/memo' className='link'>Memo</Link></li> 
+                         <li><Link to='/lazy' className='link'>LazySuspense</Link></li>       
                        
                     </ul>)}
                     </div>
