@@ -21,6 +21,7 @@ import Memo from './components/FunctionalComponents/Memoization/Memo';
 import LazyLoadingWithSuspense from './components/FunctionalComponents/Memoization/LazyLoadingWithSuspense';
 import UseLocalStorage from './components/FunctionalComponents/Hooks/CustomHooks/UseLocalStorage';
 import HoC from './components/FunctionalComponents/HOC/HoC';
+import DarkModeToggle from './components/FunctionalComponents/Hooks/CustomHooks/DarkModeToggle';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/memo" element={isLoggedIn ? <Memo /> : <Login onLogin={handleLogin} />} />
         <Route path="/lazy" element={isLoggedIn ? <LazyLoadingWithSuspense /> : <Login onLogin={handleLogin} />} />
         <Route path="/usecustom" element={isLoggedIn ? <UseLocalStorage /> : <Login onLogin={handleLogin} />} />
+        <Route path="/usecustom2" element={isLoggedIn ? <DarkModeToggle /> : <Login onLogin={handleLogin} />} />
         <Route path="/hoc" element={isLoggedIn ? <HoC /> : <Login onLogin={handleLogin} />} />
         
       </Routes>
