@@ -77,35 +77,29 @@ app.get('/getsignupdet', async (req, res) => {
   }
 });
 
-app.put('/updateuser', async (req, res) => {
-    const { id, ...updates } = req.body; 
-  
-    try {
-      const updatedUser = await Signup.findByIdAndUpdate(id, updates, { new: true });
-      if (!updatedUser) {
-        return res.status(404).send("User not found");
-      }
-      res.status(200).send("User details updated successfully");
-    } catch (err) {
-      res.status(500).send("Error updating user details");
-    }
-  });
+app.post('/updatedet',async(req,res)=>{
+  var updateRec= await Signup.findOneAndUpdate(
+    {username:""},
+    {$set:{username:""}}
+  )
+  console.log(updateRec)
+  updateRec.save()
+  res.json("Record updated")
+})
+
   
   
 
-  app.delete('/deleteuser', async (req, res) => {
-    const { id } = req.body; 
-  
-    try {
-      const deletedUser = await Signup.findByIdAndDelete(id);
-      if (!deletedUser) {
-        return res.status(404).send("User not found");
+  app.post('/deletedet', async (req, res) => {
+    const { username } = req.body; 
+    const deleteRec = await Signup.findOneAndDelete({ username: "" }); 
+      if (deleteRec) {
+        res.json("Record deleted successfully" );
+      } else {
+        res.json("Record not found");
       }
-      res.status(200).send("User deleted successfully");
-    } catch (err) {
-      res.status(500).send("Error deleting user");
-    }
   });
+  
   
 app.listen(3001, () => {
   console.log("Server connected");

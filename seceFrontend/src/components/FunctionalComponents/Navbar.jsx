@@ -10,13 +10,15 @@ const Navbar=()=>{
         showhookDropdown(hookdropdown=>!hookdropdown)
 
     }
-        
-    
+    const handleLogout = () => {
+        setIsLoggedIn(false); 
+      };
+
     return(
         <header>
         <nav>
             <ol>
-                <li><Link to='/' className="link">Home</Link></li>
+                <li><Link to='/home' className="link">Home</Link></li>
                 <li><Link to='/about' className="link">About</Link></li>
                 <li><Link to='/gallery' className="link">Gallery</Link></li>
                 <li><Link to='/contact' className="link">Contact</Link></li>
@@ -75,7 +77,7 @@ const Navbar=()=>{
                     </ul>)}
                     </div>
                 
-
+                    <li><Link to="/" className="link" onClick={handleLogout}>Logout</Link></li>
             </ol>
         </nav>
         </header>
