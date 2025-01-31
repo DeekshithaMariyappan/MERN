@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const Signup = require("./models/signupSchema");
 const bcrypt =require('bcrypt');
 const cors =require('cors');
+const jwt=require('jsonwebtoken')
 
 const app = express();
 dotenv.config();
@@ -18,14 +19,35 @@ mdb.connect(process.env.MONGODB_URL)
   .catch((err) => {
     console.log("MongoDb connection unsuccessful", err);
   });
+  const verifyToken=(req,res,next)=>{
+    console.log("Middleware is triggered")
+    var token=req.headers.authorization
+    if(!token) {
+      res.send("Request Denied");
+    }
+    try{
+      const user=jwt.verify(token,process.env.SECRET_KEY)
+      console.log(user)
+      req.user=user
+    }catch(error){
+      console.log(error)
+      res.send("Error in token");
+    }
+    next();
+  }
 
 app.get('/', (req, res) => {
   res.send("Welcome to Backend friends");
 });
 
 app.get('/static', (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));        
 });
+
+app.get('/json',verifyToken,(req,res)=>{
+  console.log("Inside json route")
+  res.json({message:"This is a middleware check",user:req.user.username})
+})
 
 app.post('/signup', async(req, res) => {
   var { firstname, lastname, username, email, password } = req.body;
@@ -53,16 +75,20 @@ app.post('/login', async (req, res) => {
 
   try {
     const user = await Signup.findOne({ email: email });
-    if (!user) {
-      return res.status(404).send({response:"User not found",loginStatus:false});
+    if (user) {
+    const payload ={
+      email:user.email,
+      username:user.username
     }
+    const token=jwt.sign(payload,process.env.SECRET_KEY,{expiresIn:"1hr"})
+    console.log(token)
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
-
+   
     if (isPasswordCorrect) {
-      res.status(200).send({response:"Login successful",loginStatus:true});
+      res.status(200).send({response:"Login successful",loginStatus:true,token:token});
     } else {
       res.status(401).send({response:"Incorrect password",loginStatus:false});
-    }
+    }}
   } catch (err) {
     res.status(500).send("Error during login");
   }
@@ -86,13 +112,11 @@ app.post('/updatedet',async(req,res)=>{
   updateRec.save()
   res.json("Record updated")
 })
-
-  
   
 
   app.post('/deletedet', async (req, res) => {
     const { username } = req.body; 
-    const deleteRec = await Signup.findOneAndDelete({ username: "" }); 
+    const deleteRec = await Signup.findOneAndDelete({ email: "" }); 
       if (deleteRec) {
         res.json("Record deleted successfully" );
       } else {
